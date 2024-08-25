@@ -69,9 +69,23 @@
     nil
   ];
 
-  # Enable home-manager and git
+  # Enable home-manager
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+
+  # Git config
+  programs.git = {
+    enable = true;
+
+    userName = "DavidMazarro";
+    userEmail = "davidmazarro98@gmail.com";
+
+    extraConfig = {
+      user.signingKey = "7A97A25DC69A60E8";
+      init.defaultBranch = "main";
+      commit.gpgSign = true;
+      core.editor = "vim";
+    };
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
