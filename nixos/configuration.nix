@@ -74,7 +74,7 @@
 
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -92,12 +92,12 @@
     enable = true;
   };
 
-    # Enable the X11 windowing system and GNOME.
+  # Enable the X11 windowing system and GNOME.
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = ["nvidia"];
 
     # Configure keymap in X11
     xkb.layout = "us";
@@ -133,6 +133,13 @@
   };
   hardware.pulseaudio.enable = false;
 
+  # GPG settings
+  programs.gnupg.agent = {
+    enable = true;
+  };
+
+  # User and host settings
+
   networking.hostName = "yorha";
 
   users = {
@@ -141,13 +148,13 @@
       isNormalUser = true;
       home = "/home/david";
       description = "David Mazarro";
-      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+      extraGroups = ["wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
       # openssh.authorizedKeys.keys  = [ "ssh-dss AAAAB3Nza... alice@foobar" ];
       hashedPassword = "$6$gQEjZ4ihu/HElD8f$aC1HzlwKQACDR2/KgAEk.PWeV7JJdb.znKZWW1QGV5H2zrVj0XxH74j0RWlj18xBTSDgHkPvXH2HL4NVCNX.30";
     };
   };
 
-    # List packages installed in system profile. To search, run:
+  # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
