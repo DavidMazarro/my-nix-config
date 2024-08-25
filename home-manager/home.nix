@@ -55,6 +55,11 @@
   home.packages = with pkgs; [ 
     neofetch
     obsidian
+    discord
+    vscode
+    terminator
+    google-chrome
+    telegram-desktop
     # steam
   ];
 
