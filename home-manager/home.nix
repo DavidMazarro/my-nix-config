@@ -65,6 +65,11 @@
   };
 
   home.shellAliases = {
+    ls = "lsd";
+    lsl = "lsd -l";
+    lsa = "lsd -a";
+    lsla = "lsd -la";
+    
     # TODO: improve these two, do not hardcode the path
     nhos = "nh os switch ~/Repos/nixos-config";
     nhhome = "nh home switch ~/Repos/nixos-config";
@@ -74,6 +79,8 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     nh
+    lsd
+    nerdfonts
     neofetch
     obsidian
     discord
