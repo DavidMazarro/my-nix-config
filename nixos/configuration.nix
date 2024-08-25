@@ -107,6 +107,9 @@
   # Enable picom compositor to avoid flickering and graphics weirdness.
   services.picom.enable = true;
 
+  # Fixes Electron and Chromium apps in Wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # Nvidia drivers settings.
   hardware.nvidia = {
     # The actual drivers.
