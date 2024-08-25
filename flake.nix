@@ -57,6 +57,7 @@
         modules = [
           # > Main nixos configuration file <
           ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager
         ];
       };
     };
