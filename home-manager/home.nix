@@ -53,6 +53,15 @@
   # Zsh config
   programs.zsh = {
     enable = true;
+    enableAutosuggestions = true;
+    oh-my-zsh = {
+      enable = true;
+      # plugins = [
+      #   "command-not-found"
+      #   "poetry"
+      # ];
+      theme = "agnoster";
+    };
   };
 
   home.shellAliases = {
@@ -80,6 +89,7 @@
     alejandra
     # Nix LSP
     nil
+    age
   ];
 
   # Enable home-manager
