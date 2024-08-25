@@ -55,6 +55,12 @@
     enable = true;
   };
 
+  home.shellAliases = {
+    # TODO: improve these two, do not hardcode the path
+    nhos = "nh os switch ~/Repos/nixos-config";
+    nhhome = "nh home switch ~/Repos/nixos-config";
+  };
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
