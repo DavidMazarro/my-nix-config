@@ -100,7 +100,8 @@
     videoDrivers = [ "nvidia" ];
 
     # Configure keymap in X11
-    # xkb.layout = "us";
+    xkb.layout = "us";
+    xkb.variant = "intl";
     # xkb.options = "eurosign:e,caps:escape";
   };
 
