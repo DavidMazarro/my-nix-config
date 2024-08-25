@@ -138,6 +138,8 @@
     enable = true;
   };
 
+  programs.zsh.enable = true;
+
   # User and host settings
 
   networking.hostName = "yorha";
@@ -148,6 +150,7 @@
       isNormalUser = true;
       home = "/home/david";
       description = "David Mazarro";
+      shell = pkgs.zsh;
       extraGroups = ["wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
       # openssh.authorizedKeys.keys  = [ "ssh-dss AAAAB3Nza... alice@foobar" ];
       hashedPassword = "$6$gQEjZ4ihu/HElD8f$aC1HzlwKQACDR2/KgAEk.PWeV7JJdb.znKZWW1QGV5H2zrVj0XxH74j0RWlj18xBTSDgHkPvXH2HL4NVCNX.30";
@@ -158,7 +161,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    zsh
     emacs
     home-manager
     vim
