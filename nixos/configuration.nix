@@ -127,6 +127,7 @@
     enable = true;
     pulse.enable = true;
   };
+  hardware.pulseaudio.enable = false;
 
   networking.hostName = "yorha";
 
