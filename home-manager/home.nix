@@ -59,6 +59,7 @@
     vscode
     terminator
     google-chrome
+    firefox
     telegram-desktop
     # steam
   ];

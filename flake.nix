@@ -50,7 +50,7 @@
     homeManagerModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#yorha
+    # Available through 'nixos-rebuild <command> --flake .#yorha
     nixosConfigurations = {
       "yorha" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
@@ -62,7 +62,7 @@
     };
 
     # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#david@yorha'
+    # Available through 'home-manager <command> --flake .#david@yorha'
     homeConfigurations = {
       "david@yorha" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
