@@ -68,41 +68,91 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  # FIXME: Add the rest of your current configuration
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  # TODO: Set your hostname
-  networking.hostName = "your-hostname";
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users = {
-    # FIXME: Replace with your username
-    your-username = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "correcthorsebatterystaple";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel"];
-    };
-  };
+  # Set your time zone.
+  time.timeZone = "Europe/Madrid";
 
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  services.openssh = {
+  # Select internationalisation properties.
+  # i18n.defaultLocale = "en_US.UTF-8";
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  #   useXkbConfig = true; # use xkb.options in tty.
+  # };
+
+  # Enable OpenGL
+  hardware.opengl = {
     enable = true;
-    settings = {
-      # Opinionated: forbid root login through SSH.
-      PermitRootLogin = "no";
-      # Opinionated: use keys only.
-      # Remove if you want to SSH using passwords
-      PasswordAuthentication = false;
+  };
+
+    # Enable the X11 windowing system and GNOME.
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    videoDrivers = [ "nvidia" ];
+
+    # Configure keymap in X11
+    # xkb.layout = "us";
+    # xkb.options = "eurosign:e,caps:escape";
+  };
+
+  # Enable picom compositor to avoid flickering and graphics weirdness.
+  services.picom.enable = true;
+
+  # Nvidia drivers settings.
+  hardware.nvidia = {
+    # The actual drivers.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    # Modesetting is REQUIRED (apparently).
+    modesetting.enable = true;
+
+    # Helps avoid screen tearing issues.
+    forceFullCompositionPipeline = true;
+
+    # Nvidia settings menu available through 'nvidia-settings' command.
+    nvidiaSettings = true;
+  };
+
+  # Audio settings
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+
+  networking.hostName = "yorha";
+
+  users = {
+    mutableUsers = false;
+    users."david" = {
+      isNormalUser = true;
+      home = "/home/david";
+      description = "David Mazarro";
+      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+      # openssh.authorizedKeys.keys  = [ "ssh-dss AAAAB3Nza... alice@foobar" ];
+      hashedPassword = "$6$gQEjZ4ihu/HElD8f$aC1HzlwKQACDR2/KgAEk.PWeV7JJdb.znKZWW1QGV5H2zrVj0XxH74j0RWlj18xBTSDgHkPvXH2HL4NVCNX.30";
     };
   };
+
+    # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    git
+    zsh
+    emacs
+    home-manager
+    vim
+    wget
+  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.05";
 }
