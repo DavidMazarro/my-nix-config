@@ -52,7 +52,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     neofetch
     obsidian
     discord
@@ -60,8 +60,13 @@
     terminator
     google-chrome
     firefox
+    mpv
+    gthumb
     telegram-desktop
-    # steam
+    # Nix code formatter
+    alejandra
+    # Nix LSP
+    nil
   ];
 
   # Enable home-manager and git
