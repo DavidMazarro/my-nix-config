@@ -58,12 +58,14 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
+    nh
     neofetch
     obsidian
     discord
     vscode
     terminator
     google-chrome
+    spotify
     firefox
     mpv
     gthumb
