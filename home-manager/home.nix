@@ -90,6 +90,7 @@
     spotify
     firefox
     mpv
+    veracrypt
     gthumb
     telegram-desktop
     # Nix code formatter
