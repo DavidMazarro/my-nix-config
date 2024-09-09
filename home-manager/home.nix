@@ -7,7 +7,10 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  username = "david";
+  homeDirectory = "/home/${username}";
+in {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -46,8 +49,8 @@
   };
 
   home = {
-    username = "david";
-    homeDirectory = "/home/david";
+    inherit username;
+    inherit homeDirectory;
   };
 
   # Zsh config
