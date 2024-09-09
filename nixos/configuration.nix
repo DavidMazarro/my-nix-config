@@ -161,9 +161,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    helix
     emacs
-    home-manager
     vim
+    home-manager
     wget
   ];
 
