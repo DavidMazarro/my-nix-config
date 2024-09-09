@@ -125,6 +125,7 @@ in {
       nil
       age
       yazi
+      zellij
     ]
     ++ helixDeps;
 
