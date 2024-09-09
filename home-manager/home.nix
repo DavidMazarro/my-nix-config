@@ -69,10 +69,9 @@
     lsl = "lsd -l";
     lsa = "lsd -a";
     lsla = "lsd -la";
-    
-    # TODO: improve these two, do not hardcode the path
-    nhos = "nh os switch ~/Repos/nixos-config";
-    nhhome = "nh home switch ~/Repos/nixos-config";
+
+    nhos = "nh os switch ${./..}";
+    nhhome = "nh home switch ${./..}";
   };
 
   # Add stuff for your user as you see fit:
