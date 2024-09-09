@@ -56,7 +56,7 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    
+
     oh-my-zsh = {
       enable = true;
       # plugins = [
@@ -83,29 +83,40 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [
-    nh
-    lsd
-    comma
-    nerdfonts
-    neofetch
-    obsidian
-    discord
-    vscode
-    terminator
-    google-chrome
-    spotify
-    firefox
-    mpv
-    veracrypt
-    gthumb
-    telegram-desktop
-    # Nix code formatter
-    alejandra
-    # Nix LSP
-    nil
-    age
-  ];
+  home.packages = with pkgs; let
+    helixDeps = [
+      # See: https://github.com/helix-editor/helix/wiki/Troubleshooting#on-linux
+      # For X11 support of clipboard copy
+      xclip
+      # For Wayland support of clipboard copy
+      wl-clipboard
+    ];
+  in
+    [
+      nh
+      lsd
+      comma
+      nerdfonts
+      neofetch
+      obsidian
+      discord
+      vscode
+      terminator
+      google-chrome
+      spotify
+      firefox
+      mpv
+      veracrypt
+      gthumb
+      telegram-desktop
+      # Nix code formatter
+      alejandra
+      # Nix LSP
+      nil
+      age
+      yazi
+    ]
+    ++ helixDeps;
 
   # Enable home-manager
   programs.home-manager.enable = true;
