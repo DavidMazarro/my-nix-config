@@ -161,7 +161,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    helix
+    unstable.helix
     emacs
     vim
     home-manager
