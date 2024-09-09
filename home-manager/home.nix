@@ -75,6 +75,10 @@
 
     nhos = "nh os switch ${./..}";
     nhhome = "nh home switch ${./..}";
+    # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
+    gcold = "sudo nix-collect-garbage -d && nh os switch ${./..}";
+
+    nhclean = "nh clean all";
   };
 
   # Add stuff for your user as you see fit:
