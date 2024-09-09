@@ -76,10 +76,10 @@ in {
     lsa = "lsd -a";
     lsla = "lsd -la";
 
-    nhos = "nh os switch ${./..}";
-    nhhome = "nh home switch ${./..}";
+    nhos = "nh os switch ${homeDirectory}/nixos-config";
+    nhhome = "nh home switch ${homeDirectory}/nixos-config";
     # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
-    gcold = "sudo nix-collect-garbage -d && nh os switch ${./..}";
+    gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDirectory}/nixos-config";
 
     nhclean = "nh clean all";
   };
