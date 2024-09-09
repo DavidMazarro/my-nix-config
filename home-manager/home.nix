@@ -126,6 +126,7 @@ in {
       age
       yazi
       zellij
+      fzf
     ]
     ++ helixDeps;
 
