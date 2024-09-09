@@ -53,6 +53,13 @@ in {
     inherit homeDirectory;
   };
 
+  # Dotfiles setup
+  home.file = {
+    # Helix dotfiles
+    "${homeDirectory}/.config/helix".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/nixos-config/dotfiles/helix";
+  };
+
   # Zsh config
   programs.zsh = {
     enable = true;
