@@ -82,6 +82,7 @@
   home.packages = with pkgs; [
     nh
     lsd
+    comma
     nerdfonts
     neofetch
     obsidian
