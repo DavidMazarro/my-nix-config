@@ -52,6 +52,7 @@
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
+    package = pkgs.nixVersions.latest;
     settings = {
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
@@ -95,7 +96,10 @@
   # Enable the X11 windowing system and GNOME.
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      autoSuspend = false;
+    };
     desktopManager.gnome.enable = true;
     videoDrivers = ["nvidia"];
 
