@@ -1,0 +1,75 @@
+# Steel
+
+[[language]]
+name = "scheme"
+language-servers = ["steel-language-server"]
+
+[language-server.steel-language-server]
+command = "steel-language-server"
+args = []
+
+# Nix
+
+[[language]]
+name = "nix"
+formatter = { command = "alejandra" }
+
+# Haskell
+
+# [language-server.haskell-language-server] # hls config docs: https://haskell-language-server.readthedocs.io/en/latest/configuration.html#example-with-settings
+# command = "haskell-language-server"
+# config.haskell.formattingProvider = "fourmolu" # default is "ormolu"
+# config.haskell.checkParents = "NeverCheck" # default is "OnSave"
+# config.haskell.maxCompletions = 2 # default  is 40
+
+[[language]]
+name = "haskell"
+language-servers = [ "scls", "haskell-language-server" ]
+
+# roots = ["Setup.hs", "stack.yaml", "*.cabal"]
+
+# Snippets / SCLS
+
+# introduce new language server
+[language-server.scls]
+command = "simple-completion-language-server"
+
+[language-server.scls.config]
+max_completion_items = 20            # set max completion results len for each group: words, snippets, unicode-input
+snippets_first = true                # completions will return before snippets by default
+snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for example text `xsq|` become `x^2|` when snippet `sq` has body `^2`
+feature_words = true                 # enable completion by word
+feature_snippets = true              # enable snippets
+feature_unicode_input = true         # enable "unicode input"
+feature_paths = true                 # enable path completion
+feature_citations = false            # enable citation completion (only on `citation` feature enabled)
+
+# write logs to /tmp/completion.log
+[language-server.scls.environment]
+RUST_LOG = "info,simple-completion-language-server=info"
+LOG_FILE = "/tmp/completion.log"
+
+# append language server to existed languages
+[[language]]
+name = "rust"
+language-servers = [ "scls", "rust-analyzer" ]
+# config = { inlay_hints = { enabled = true } }
+
+[[language-server.rust-analyzer.config]]
+inlay_hints = { enabled = true, show_type_hints = true, show_parameter_hints = true, show_other_hints = true }
+
+[[language]]
+name = "git-commit"
+language-servers = [ "scls" ]
+
+# etc..
+
+# introduce a new language to enable completion on any doc by forcing set language with :set-language stub
+[[language]]
+name = "stub"
+scope = "text.stub"
+file-types = []
+shebangs = []
+roots = []
+auto-format = false
+language-servers = [ "scls" ]
