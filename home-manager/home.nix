@@ -101,6 +101,18 @@ in {
       # For Wayland support of clipboard copy
       wl-clipboard
     ];
+    haskellPkgs = [
+      cabal-install
+      stack
+      ghc
+      haskell-language-server
+      haskellPackages.implicit-hie
+    ];
+    rustPkgs = [
+      rustc
+      cargo
+      rust-analyzer
+    ];
   in
     [
       nh
@@ -128,7 +140,9 @@ in {
       zellij
       fzf
     ]
-    ++ helixDeps;
+    ++ helixDeps
+    ++ haskellPkgs
+    ++ rustPkgs;
 
   # Enable home-manager
   programs.home-manager.enable = true;
