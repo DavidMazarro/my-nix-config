@@ -54,6 +54,8 @@
   in {
     package = pkgs.nixVersions.latest;
     settings = {
+      # Enable Nix store optimization
+      auto-optimise-store = true;
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
       # Opinionated: disable global registry
