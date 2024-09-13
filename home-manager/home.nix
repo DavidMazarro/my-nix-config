@@ -63,7 +63,7 @@ in {
   # Zsh config
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
@@ -91,6 +91,23 @@ in {
     nhclean = "nh clean all";
   };
 
+  # GNOME / GTK settings
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+
+      # `gnome-extensions list` for a list
+      enabled-extensions = [
+        "dash-to-dock@micxgx.gmail.com"
+      ];
+    };
+  };
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; let
@@ -112,6 +129,9 @@ in {
       rustc
       cargo
       rust-analyzer
+    ];
+    gnomeExts = [
+      gnomeExtensions.dash-to-dock
     ];
   in
     [
@@ -142,7 +162,8 @@ in {
     ]
     ++ helixDeps
     ++ haskellPkgs
-    ++ rustPkgs;
+    ++ rustPkgs
+    ++ gnomeExts;
 
   # Enable home-manager
   programs.home-manager.enable = true;
@@ -155,10 +176,10 @@ in {
     userEmail = "davidmazarro98@gmail.com";
 
     extraConfig = {
-      user.signingKey = "7A97A25DC69A60E8";
+      user.signingKey = "9ED6F78FE60BC52069B3ADBC72A5C1DCCC9C4438";
       init.defaultBranch = "main";
       commit.gpgSign = true;
-      core.editor = "vim";
+      core.editor = "hx";
     };
   };
 
