@@ -58,6 +58,8 @@ in {
     # Helix dotfiles
     "${homeDirectory}/.config/helix".source =
       config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/nixos-config/dotfiles/helix";
+    "${homeDirectory}/.config/terminator".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/nixos-config/dotfiles/terminator";
   };
 
   # Zsh config
@@ -133,6 +135,9 @@ in {
     gnomeExts = [
       gnomeExtensions.dash-to-dock
     ];
+    fonts = [
+      hasklig
+    ];
   in
     [
       nh
@@ -163,7 +168,8 @@ in {
     ++ helixDeps
     ++ haskellPkgs
     ++ rustPkgs
-    ++ gnomeExts;
+    ++ gnomeExts
+    ++ fonts;
 
   # Enable home-manager
   programs.home-manager.enable = true;

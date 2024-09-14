@@ -1,0 +1,89 @@
+[global_config]
+  enabled_plugins = SaveLastSessionLayout, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
+  case_sensitive = False
+[keybindings]
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#191724"
+    cursor_bg_color = "#9ccfd8"
+    font = Hasklug Nerd Font 14
+    foreground_color = "#e0def4"
+    show_titlebar = False
+    palette = "#26233a:#eb6f91:#9ccfd8:#f6c177:#31748f:#65618d:#c4a7e7:#d3d7cf"
+    use_system_font = False
+  [[AdventureTime]]
+    audible_bell = True
+    icon_bell = False
+    background_color = "#1f1d45"
+    font = Hack Nerd Font 20
+    foreground_color = "#f8dcc0"
+    show_titlebar = False
+    palette = "#050404:#bd0013:#4ab118:#e7741e:#0f4ac6:#665993:#70a598:#f8dcc0"
+    use_system_font = False
+  [[Belafonte Day]]
+    audible_bell = True
+    icon_bell = False
+    background_color = "#d5ccba"
+    font = Hack Nerd Font 20
+    foreground_color = "#45373c"
+    show_titlebar = False
+    palette = "#20111b:#be100e:#858162:#eaa549:#426a79:#97522c:#989a9c:#968c83"
+    use_system_font = False
+  [[Rose Pine]]
+    icon_bell = False
+    background_color = "#191724"
+    cursor_bg_color = "#9ccfd8"
+    font = Hasklug Nerd Font 14
+    foreground_color = "#e0def4"
+    show_titlebar = False
+    palette = "#26233a:#eb6f91:#9ccfd8:#f6c177:#31748f:#65618d:#c4a7e7:#d3d7cf"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+      size = 1200, 800
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = Rose Pine
+  [[SaveLastSessionLayout]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 26:23
+      maximised = False
+      fullscreen = False
+      size = 1424, 927
+      title = david@yorha:~
+      last_active_term = 6864824d-4578-47ec-8d3e-d5c8abb1b729
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = Rose Pine
+      uuid = 6864824d-4578-47ec-8d3e-d5c8abb1b729
+      directory = /home/david
+  [[YaziLayout]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 655:113
+      maximised = False
+      fullscreen = False
+      size = 1744, 1103
+      title = sudo nano /usr/share/applications/yazi.desktop
+      last_active_term = 47fb559f-22c2-4bf5-bbe8-ed4fd3453404
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = Rose Pine
+      uuid = 47fb559f-22c2-4bf5-bbe8-ed4fd3453404
+[plugins]
