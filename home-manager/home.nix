@@ -99,6 +99,9 @@ in {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = ":minimize,maximize,close";
+    };
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
@@ -107,6 +110,16 @@ in {
       enabled-extensions = [
         "dash-to-dock@micxgx.gmail.com"
       ];
+    };
+
+    # Extension-specific settings.
+    # Since these come from dconf, to find out the name for
+    # a specific option, run `dconf watch /` and change any option
+    # manually and its name will show up along its current value.
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      dash-max-icon-size = 64;
+      scroll-action = "cycle-windows";
+      click-action = "minimize";
     };
   };
 
