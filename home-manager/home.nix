@@ -93,6 +93,8 @@ in {
     nhclean = "nh clean all";
 
     ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
+
+    lg = "lazygit";
   };
 
   # GNOME / GTK settings
@@ -200,6 +202,7 @@ in {
       syncplay
       qdirstat
       testdisk
+      lazygit
     ]
     ++ helixDeps
     ++ haskellPkgs
