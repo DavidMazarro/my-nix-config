@@ -113,6 +113,16 @@ in {
       disable-user-extensions = false;
       last-selected-power-profile = "performance";
 
+      favorite-apps = [
+        "google-chrome.desktop"
+        "discord.desktop"
+        "org.telegram.desktop.desktop"
+        "code.desktop"
+        "terminator.desktop"
+        "org.gnome.Music.desktop"
+        "org.gnome.Nautilus.desktop"
+        "org.gnome.Settings.desktop"
+      ];
       # `gnome-extensions list` for a list
       enabled-extensions = [
         "dash-to-dock@micxgx.gmail.com"
