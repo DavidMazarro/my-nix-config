@@ -180,6 +180,11 @@ in {
       zellij
       fzf
       yt-dlp
+      unstable.gallery-dl
+      ntfs3g
+      syncplay
+      qdirstat
+      testdisk
     ]
     ++ helixDeps
     ++ haskellPkgs
