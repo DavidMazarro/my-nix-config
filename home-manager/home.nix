@@ -91,6 +91,8 @@ in {
     gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDirectory}/nixos-config";
 
     nhclean = "nh clean all";
+
+    ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
   };
 
   # GNOME / GTK settings
@@ -177,6 +179,7 @@ in {
       yazi
       zellij
       fzf
+      yt-dlp
     ]
     ++ helixDeps
     ++ haskellPkgs
