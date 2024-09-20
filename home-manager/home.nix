@@ -95,20 +95,26 @@ in {
     ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
 
     lg = "lazygit";
+
+    yz = "yazi";
   };
 
   # GNOME / GTK settings
 
-  dconf.settings = {
+  dconf.settings = with lib.hm.gvariant; {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = ":minimize,maximize,close";
     };
-    # This disables automatic turning off screen after period of inactivity.
+
+    # These two disable automatic turning off screen after period of inactivity.
     "org/gnome/desktop/session" = {
-      idle-delay = "uint32 0";
+      idle-delay = mkUint32 0;
+    };
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "nothing";
     };
 
     "org/gnome/shell" = {
