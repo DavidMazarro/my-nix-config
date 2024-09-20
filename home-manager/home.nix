@@ -104,9 +104,14 @@ in {
     "org/gnome/desktop/wm/preferences" = {
       button-layout = ":minimize,maximize,close";
     };
+    # This disables automatic turning off screen after period of inactivity.
+    "org/gnome/desktop/session" = {
+      idle-delay = "uint32 0";
+    };
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
+      last-selected-power-profile = "performance";
 
       # `gnome-extensions list` for a list
       enabled-extensions = [
@@ -203,7 +208,7 @@ in {
     userEmail = "davidmazarro98@gmail.com";
 
     extraConfig = {
-      user.signingKey = "9ED6F78FE60BC52069B3ADBC72A5C1DCCC9C4438";
+      user.signingKey = "8A58E16D54BC2304E889DBF7387EE9CB2E5CA73A";
       init.defaultBranch = "main";
       commit.gpgSign = true;
       core.editor = "hx";
