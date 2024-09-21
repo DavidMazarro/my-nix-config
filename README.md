@@ -14,4 +14,6 @@ home-manager switch --flake .#david@yorha
 ```
 After this initial set up, the aliases `nhos` and `nhhome` can be used from
 any location to rebuild NixOS and the home configuration respectively.
-
+## Common issues
+### error: path '/nix/store/\<hash\>-source/\<some file>.nix' does not exist
+This can happen if you have created a new file and tried to perform a `nixos-rebuild` or `home-manager` command without first staging that file in Git. Always remember to stage files before rebuilding!
