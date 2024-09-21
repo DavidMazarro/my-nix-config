@@ -10,6 +10,7 @@
 }: let
   username = "david";
   homeDirectory = "/home/${username}";
+  common = import ./common.nix { inherit inputs outputs lib config pkgs; };
 in {
   # You can import other home-manager modules here
   imports = [
@@ -177,9 +178,8 @@ in {
       hasklig
     ];
   in
-    [
+    common.home.packages ++ [
       nh
-      lsd
       comma
       nerdfonts
       neofetch
@@ -194,22 +194,13 @@ in {
       veracrypt
       gthumb
       telegram-desktop
-      # Nix code formatter
-      alejandra
-      # Nix LSP
-      nil
       age
-      yazi
-      zellij
-      fzf
       yt-dlp
       unstable.gallery-dl
       ntfs3g
       syncplay
       qdirstat
       testdisk
-      lazygit
-      navi
     ]
     ++ helixDeps
     ++ haskellPkgs
