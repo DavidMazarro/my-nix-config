@@ -2,6 +2,7 @@
   enabled_plugins = SaveLastSessionLayout, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
   case_sensitive = False
 [keybindings]
+  layout_launcher = <Primary><Shift>l
 [profiles]
   [[default]]
     icon_bell = False
