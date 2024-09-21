@@ -209,6 +209,7 @@ in {
       qdirstat
       testdisk
       lazygit
+      navi
     ]
     ++ helixDeps
     ++ haskellPkgs
