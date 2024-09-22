@@ -11,7 +11,7 @@ Install NixOS on a new host by following the
 After successfully installing NixOS, proceed to the next section.
 
 ### Setting up the system and home
-Clone this repository (preferrably, under `$HOME/nixos-config`).
+Clone this repository (preferrably, under `$HOME/my-nix-config`).
 After that, from within the root folder of the repository, you can:
 
 #### If you are on NixOS and want to configure it:

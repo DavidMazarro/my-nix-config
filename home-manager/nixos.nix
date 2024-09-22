@@ -35,17 +35,17 @@ in {
   home.file = common.home.file // {
     # Terminator dotfiles
     "${homeDirectory}/.config/terminator".source =
-      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/nixos-config/dotfiles/terminator";
+      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/my-nix-config/dotfiles/terminator";
   };
 
   # Zsh config
   programs.zsh = common.programs.zsh;
 
   home.shellAliases = common.home.shellAliases // {
-    nhos = "nh os switch ${homeDirectory}/nixos-config";
-    nhhome = "nh home switch ${homeDirectory}/nixos-config";
+    nhos = "nh os switch ${homeDirectory}/my-nix-config";
+    nhhome = "nh home switch ${homeDirectory}/my-nix-config";
     # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
-    gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDirectory}/nixos-config";  
+    gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDirectory}/my-nix-config";  
     nhclean = "nh clean all";
     ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
   };

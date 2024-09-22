@@ -8,7 +8,7 @@
   home.file = {
     # Helix dotfiles
     "${homeDirectory}/.config/helix".source =
-      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/nixos-config/dotfiles/helix";
+      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/my-nix-config/dotfiles/helix";
   };
 
   home.shellAliases = {
