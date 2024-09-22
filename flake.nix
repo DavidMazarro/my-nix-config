@@ -70,7 +70,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Main home-manager configuration file <
-          ./home-manager/home.nix
+          ./home-manager/nixos.nix
         ];
       };
 
