@@ -1,13 +1,15 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   username = "dmunuera";
   homeDirectory = "/Users/${username}";
-  common = import ./common.nix { inherit config pkgs; };
-in
-{
+  common = import ./common.nix {inherit config pkgs;};
+in {
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = ["nix-command" "flakes"];
   };
 
   home = {
@@ -15,9 +17,11 @@ in
     inherit homeDirectory;
   };
 
-  home.packages = with pkgs; common.home.packages ++ [
-    hello
-  ];
+  home.packages = with pkgs;
+    common.home.packages
+    ++ [
+      hello
+    ];
 
   # The state version is required and should stay at the version you
   # originally installed.
