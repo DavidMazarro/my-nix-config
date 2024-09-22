@@ -21,20 +21,47 @@
 
     yz = "yazi";
   };
- 
-  home.packages = with pkgs; [
-    lsd
-    yazi
-    zellij
-    fzf
-    navi
-    # Nix code formatter
-    alejandra
-    # Nix LSP
-    nil
-    direnv
-    lazygit
-  ];
+
+  home.packages = with pkgs; let
+    fonts = [
+      nerdfonts
+      hasklig
+    ];
+    rustPkgs = [
+      rustc
+      cargo
+      rust-analyzer
+    ];
+    haskellPkgs = [
+      cabal-install
+      stack
+      ghc
+      haskell-language-server
+      haskellPackages.implicit-hie
+    ];
+  in
+    [
+      nh
+      lsd
+      yazi
+      zellij
+      fzf
+      navi
+      # Nix code formatter
+      alejandra
+      # Nix LSP
+      nil
+      direnv
+      lazygit
+      comma
+      google-chrome
+      obsidian
+      discord
+      vscode
+    ]
+    ++ fonts
+    ++ rustPkgs
+    ++ haskellPkgs;
 
   nixpkgs = {
     # You can add overlays here
@@ -61,19 +88,39 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
+  programs = {
+    # Enable home-manager and let it manage itself.
+    home-manager.enable = true;
 
-    oh-my-zsh = {
+    # Zsh config
+    zsh = {
       enable = true;
-      # plugins = [
-      #   "command-not-found"
-      #   "poetry"
-      # ];
-      theme = "agnoster";
+      autosuggestion.enable = true;
+      enableCompletion = true;
+      syntaxHighlighting.enable = true;
+
+      oh-my-zsh = {
+        enable = true;
+        # plugins = [
+        #   "command-not-found"
+        #   "poetry"
+        # ];
+        theme = "agnoster";
+      };
+    };
+
+    # Git config
+    git = {
+      enable = true;
+
+      userName = "DavidMazarro";
+      userEmail = "davidmazarro98@gmail.com";
+
+      extraConfig = {
+        init.defaultBranch = "main";
+        commit.gpgSign = true;
+        core.editor = "hx";
+      };
     };
   };
 }

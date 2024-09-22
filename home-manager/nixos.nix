@@ -32,26 +32,26 @@ in {
   };
 
   # Dotfiles setup
-  home.file = common.home.file // {
-    # Terminator dotfiles
-    "${homeDirectory}/.config/terminator".source =
-      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/my-nix-config/dotfiles/terminator";
-  };
+  home.file =
+    common.home.file
+    // {
+      # Terminator dotfiles
+      "${homeDirectory}/.config/terminator".source =
+        config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/my-nix-config/dotfiles/terminator";
+    };
 
-  # Zsh config
-  programs.zsh = common.programs.zsh;
+  home.shellAliases =
+    common.home.shellAliases
+    // {
+      nhos = "nh os switch ${homeDirectory}/my-nix-config";
+      nhhome = "nh home switch ${homeDirectory}/my-nix-config";
+      # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
+      gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDirectory}/my-nix-config";
+      nhclean = "nh clean all";
+      ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
+    };
 
-  home.shellAliases = common.home.shellAliases // {
-    nhos = "nh os switch ${homeDirectory}/my-nix-config";
-    nhhome = "nh home switch ${homeDirectory}/my-nix-config";
-    # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
-    gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDirectory}/my-nix-config";  
-    nhclean = "nh clean all";
-    ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
-  };
-  
   # GNOME / GTK settings
-
   dconf.settings = with lib.hm.gvariant; {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
@@ -102,43 +102,21 @@ in {
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; let
-    helixDeps = [
+    helixLinuxDeps = [
       # See: https://github.com/helix-editor/helix/wiki/Troubleshooting#on-linux
       # For X11 support of clipboard copy
       xclip
       # For Wayland support of clipboard copy
       wl-clipboard
     ];
-    haskellPkgs = [
-      cabal-install
-      stack
-      ghc
-      haskell-language-server
-      haskellPackages.implicit-hie
-    ];
-    rustPkgs = [
-      rustc
-      cargo
-      rust-analyzer
-    ];
     gnomeExts = [
       gnomeExtensions.dash-to-dock
-    ];
-    fonts = [
-      hasklig
     ];
   in
     common.home.packages
     ++ [
-      nh
-      comma
-      nerdfonts
       neofetch
-      obsidian
-      discord
-      vscode
       terminator
-      google-chrome
       spotify
       firefox
       mpv
@@ -153,28 +131,21 @@ in {
       qdirstat
       testdisk
     ]
-    ++ helixDeps
-    ++ haskellPkgs
-    ++ rustPkgs
-    ++ gnomeExts
-    ++ fonts;
+    ++ helixLinuxDeps
+    ++ gnomeExts;
 
-  # Enable home-manager
-  programs.home-manager.enable = true;
-
-  # Git config
-  programs.git = {
-    enable = true;
-
-    userName = "DavidMazarro";
-    userEmail = "davidmazarro98@gmail.com";
-
-    extraConfig = {
-      user.signingKey = "8A58E16D54BC2304E889DBF7387EE9CB2E5CA73A";
-      init.defaultBranch = "main";
-      commit.gpgSign = true;
-      core.editor = "hx";
-    };
+  programs = {
+    home-manager = common.programs.home-manager;
+    git =
+      common.programs.git
+      // {
+        extraConfig =
+          common.programs.git.extraConfig
+          // {
+            user.signingKey = "8A58E16D54BC2304E889DBF7387EE9CB2E5CA73A";
+          };
+      };
+    zsh = common.programs.zsh;
   };
 
   # Nicely reload system units when changing configs
