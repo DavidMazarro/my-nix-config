@@ -10,7 +10,7 @@
 }: let
   username = "david";
   homeDirectory = "/home/${username}";
-  common = import ./common.nix { inherit inputs outputs lib config pkgs; };
+  common = import ./common.nix {inherit inputs outputs lib config pkgs;};
 in {
   # You can import other home-manager modules here
   imports = [
@@ -41,21 +41,7 @@ in {
   };
 
   # Zsh config
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-
-    oh-my-zsh = {
-      enable = true;
-      # plugins = [
-      #   "command-not-found"
-      #   "poetry"
-      # ];
-      theme = "agnoster";
-    };
-  };
+  programs.zsh = common.programs.zsh;
 
   home.shellAliases = {
     ls = "lsd";
@@ -155,7 +141,8 @@ in {
       hasklig
     ];
   in
-    common.home.packages ++ [
+    common.home.packages
+    ++ [
       nh
       comma
       nerdfonts
