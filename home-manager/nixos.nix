@@ -10,7 +10,7 @@
 }: let
   username = "david";
   homeDirectory = "/home/${username}";
-  common = import ./common.nix {inherit inputs outputs lib config pkgs;};
+  common = import ./common.nix {inherit config pkgs outputs homeDirectory;};
 in {
   # You can import other home-manager modules here
   imports = [
@@ -32,10 +32,8 @@ in {
   };
 
   # Dotfiles setup
-  home.file = {
-    # Helix dotfiles
-    "${homeDirectory}/.config/helix".source =
-      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/nixos-config/dotfiles/helix";
+  home.file = common.home.file // {
+    # Terminator dotfiles
     "${homeDirectory}/.config/terminator".source =
       config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/nixos-config/dotfiles/terminator";
   };
@@ -43,26 +41,15 @@ in {
   # Zsh config
   programs.zsh = common.programs.zsh;
 
-  home.shellAliases = {
-    ls = "lsd";
-    lsl = "lsd -l";
-    lsa = "lsd -a";
-    lsla = "lsd -la";
-
+  home.shellAliases = common.home.shellAliases // {
     nhos = "nh os switch ${homeDirectory}/nixos-config";
     nhhome = "nh home switch ${homeDirectory}/nixos-config";
     # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
-    gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDirectory}/nixos-config";
-
+    gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDirectory}/nixos-config";  
     nhclean = "nh clean all";
-
     ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
-
-    lg = "lazygit";
-
-    yz = "yazi";
   };
-
+  
   # GNOME / GTK settings
 
   dconf.settings = with lib.hm.gvariant; {

@@ -2,8 +2,26 @@
   config,
   pkgs,
   outputs,
+  homeDirectory,
   ...
 }: {
+  home.file = {
+    # Helix dotfiles
+    "${homeDirectory}/.config/helix".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/nixos-config/dotfiles/helix";
+  };
+
+  home.shellAliases = {
+    ls = "lsd";
+    lsl = "lsd -l";
+    lsa = "lsd -a";
+    lsla = "lsd -la";
+
+    lg = "lazygit";
+
+    yz = "yazi";
+  };
+ 
   home.packages = with pkgs; [
     lsd
     yazi
