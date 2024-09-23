@@ -56,7 +56,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Main nixos configuration file <
-          ./nixos/configuration.nix
+          ./nixos/yorha/configuration.nix
           home-manager.nixosModules.home-manager
         ];
       };
@@ -70,7 +70,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Main home-manager configuration file <
-          ./home-manager/nixos.nix
+          ./home-manager/yorha/home.nix
         ];
       };
 
@@ -79,7 +79,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Main home-manager configuration file <
-          ./home-manager/macos.nix
+          ./home-manager/sb/home.nix
         ];
       };
     };
