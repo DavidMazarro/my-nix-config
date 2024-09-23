@@ -6,6 +6,9 @@
   ...
 }: {
   home.file = {
+    # Zsh dotfiles
+    "${homeDirectory}/.config/zsh".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/my-nix-config/dotfiles/zsh";
     # Helix dotfiles
     "${homeDirectory}/.config/helix".source =
       config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/my-nix-config/dotfiles/helix";
@@ -105,8 +108,19 @@
         #   "command-not-found"
         #   "poetry"
         # ];
-        theme = "agnoster";
       };
+
+      plugins = [
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+      ];
+
+      initExtra = ''
+        source $HOME/.config/zsh/p10k.zsh
+      '';
     };
 
     # Git config
