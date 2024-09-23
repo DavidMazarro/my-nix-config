@@ -3,35 +3,25 @@
   pkgs,
   outputs,
   ...
-}: let
-  username = "dmunuera";
-  homeDirectory = "/Users/${username}";
-  common = import ./common.nix {inherit config pkgs outputs homeDirectory;};
-in {
+}: {
+  imports = [
+    ./common.nix
+  ];
+
   nix = {
     package = pkgs.nix;
     settings.experimental-features = ["nix-command" "flakes"];
   };
 
   home = {
-    inherit username;
-    inherit homeDirectory;
+    username = "dmunuera";
+    homeDirectory = "/users/${config.home.username}";
   };
 
-  home.file = common.home.file;
+  home.packages = with pkgs; [
+    hello
+  ];
 
-  home.shellAliases = common.home.shellAliases;
-
-  home.packages = with pkgs;
-    common.home.packages
-    ++ [
-      hello
-    ];
-
-  nixpkgs = common.nixpkgs;
-
-  programs = common.programs;
-  
   # The state version is required and should stay at the version you
   # originally installed.
   home.stateVersion = "24.05";

@@ -7,11 +7,7 @@
   config,
   pkgs,
   ...
-}: let
-  username = "david";
-  homeDirectory = "/home/${username}";
-  common = import ./common.nix {inherit config pkgs outputs homeDirectory;};
-in {
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -22,34 +18,29 @@ in {
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./common.nix
   ];
 
-  nixpkgs = common.nixpkgs;
-
   home = {
-    inherit username;
-    inherit homeDirectory;
+    username = "david";
+    homeDirectory = "/home/${config.home.username}";
   };
 
   # Dotfiles setup
-  home.file =
-    common.home.file
-    // {
-      # Terminator dotfiles
-      "${homeDirectory}/.config/terminator".source =
-        config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/my-nix-config/dotfiles/terminator";
-    };
+  home.file = let homeDir = config.home.homeDirectory; in {
+    # Terminator dotfiles
+    "${homeDir}/.config/terminator".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDir}/my-nix-config/dotfiles/terminator";
+  };
 
-  home.shellAliases =
-    common.home.shellAliases
-    // {
-      nhos = "nh os switch ${homeDirectory}/my-nix-config";
-      nhhome = "nh home switch ${homeDirectory}/my-nix-config";
-      # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
-      gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDirectory}/my-nix-config";
-      nhclean = "nh clean all";
-      ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
-    };
+  home.shellAliases = let homeDir = config.home.homeDirectory; in {
+    nhos = "nh os switch ${homeDir}/my-nix-config";
+    nhhome = "nh home switch ${homeDir}/my-nix-config";
+    # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
+    gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDir}/my-nix-config";
+    nhclean = "nh clean all";
+    ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
+  };
 
   # GNOME / GTK settings
   dconf.settings = with lib.hm.gvariant; {
@@ -113,8 +104,7 @@ in {
       gnomeExtensions.dash-to-dock
     ];
   in
-    common.home.packages
-    ++ [
+    [
       neofetch
       terminator
       spotify
@@ -135,17 +125,7 @@ in {
     ++ gnomeExts;
 
   programs = {
-    home-manager = common.programs.home-manager;
-    git =
-      common.programs.git
-      // {
-        extraConfig =
-          common.programs.git.extraConfig
-          // {
-            user.signingKey = "8A58E16D54BC2304E889DBF7387EE9CB2E5CA73A";
-          };
-      };
-    zsh = common.programs.zsh;
+    git.extraConfig.user.signingKey = "8A58E16D54BC2304E889DBF7387EE9CB2E5CA73A";
   };
 
   # Nicely reload system units when changing configs

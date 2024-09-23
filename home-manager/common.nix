@@ -2,16 +2,17 @@
   config,
   pkgs,
   outputs,
-  homeDirectory,
   ...
 }: {
-  home.file = {
+  home.file = let
+    homeDir = config.home.homeDirectory;
+  in {
     # Zsh dotfiles
-    "${homeDirectory}/.config/zsh".source =
-      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/my-nix-config/dotfiles/zsh";
+    "${homeDir}/.config/zsh".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDir}/my-nix-config/dotfiles/zsh";
     # Helix dotfiles
-    "${homeDirectory}/.config/helix".source =
-      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/my-nix-config/dotfiles/helix";
+    "${homeDir}/.config/helix".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDir}/my-nix-config/dotfiles/helix";
   };
 
   home.shellAliases = {
