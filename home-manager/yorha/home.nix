@@ -27,13 +27,17 @@
   };
 
   # Dotfiles setup
-  home.file = let homeDir = config.home.homeDirectory; in {
+  home.file = let
+    homeDir = config.home.homeDirectory;
+  in {
     # Terminator dotfiles
     "${homeDir}/.config/terminator".source =
       config.lib.file.mkOutOfStoreSymlink "${homeDir}/my-nix-config/dotfiles/terminator";
   };
 
-  home.shellAliases = let homeDir = config.home.homeDirectory; in {
+  home.shellAliases = let
+    homeDir = config.home.homeDirectory;
+  in {
     nhos = "nh os switch ${homeDir}/my-nix-config";
     nhhome = "nh home switch ${homeDir}/my-nix-config";
     # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
