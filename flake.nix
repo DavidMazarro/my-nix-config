@@ -56,7 +56,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Main nixos configuration file <
-          ./nixos/configuration.nix
+          ./nixos/yorha/configuration.nix
           home-manager.nixosModules.home-manager
         ];
       };
@@ -70,16 +70,16 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Main home-manager configuration file <
-          ./home-manager/nixos.nix
+          ./home-manager/yorha/home.nix
         ];
       };
 
-      "dmunuera@macos" = home-manager.lib.homeManagerConfiguration {
+      "dmunuera@sb" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Main home-manager configuration file <
-          ./home-manager/macos.nix
+          ./home-manager/sb/home.nix
         ];
       };
     };
