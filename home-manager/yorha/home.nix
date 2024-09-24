@@ -129,7 +129,7 @@
     ++ gnomeExts;
 
   programs = {
-    git.extraConfig.user.signingKey = "8A58E16D54BC2304E889DBF7387EE9CB2E5CA73A";
+    git.extraConfig.user.signingKey = "AAA728A5C63AA61EC163D4458E06C34E2B1DD127";
   };
 
   # Nicely reload system units when changing configs
