@@ -41,6 +41,18 @@ After that, you can build the home configuration with the following command:
 home-manager switch --flake ".#<user>@<host>"
 ```
 
+<details>
+  <summary>Enabling dotfiles for iTerm2 on macOS</summary>
+  
+  If you are on macOS and want to use iTerm2, you will need to configure it
+  to get the configuration from the dotfiles. To do that, enable the
+  "Load settings from a custom folder or URL" checkbox, introduce the path
+  to the iTerm2 dotfiles folder in there, and select "Save changes > Automatically"
+  (if you want to save any changes you do in the configuration).
+  
+  <img width="788" alt="Screenshot 2024-09-23 at 16 09 24" src="https://github.com/user-attachments/assets/3f656415-f622-4434-a62e-42c4c7731145">
+</details>
+
 ## Interacting with attributes from the REPL
 To play around with the flake and the attribute sets, you can open a REPL by running
 the following command from within the repository root folder:

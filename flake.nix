@@ -74,7 +74,7 @@
         ];
       };
 
-      "dmunuera@macos" = home-manager.lib.homeManagerConfiguration {
+      "dmunuera@sb" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
