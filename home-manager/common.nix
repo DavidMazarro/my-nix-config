@@ -30,6 +30,7 @@
     fonts = [
       nerdfonts
       hasklig
+      iosevka-comfy.comfy-wide
     ];
     rustPkgs = [
       rustc
