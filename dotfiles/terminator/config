@@ -8,7 +8,7 @@
     icon_bell = False
     background_color = "#191724"
     cursor_bg_color = "#9ccfd8"
-    font = Hasklug Nerd Font 14
+    font = IosevkaTerm Nerd Font 14
     foreground_color = "#e0def4"
     show_titlebar = False
     palette = "#26233a:#eb6f91:#9ccfd8:#f6c177:#31748f:#65618d:#c4a7e7:#d3d7cf"
@@ -35,7 +35,7 @@
     icon_bell = False
     background_color = "#191724"
     cursor_bg_color = "#9ccfd8"
-    font = Hasklug Nerd Font 13
+    font = IosevkaTerm Nerd Font 14
     foreground_color = "#e0def4"
     show_titlebar = False
     palette = "#26233a:#eb6f91:#9ccfd8:#f6c177:#31748f:#65618d:#c4a7e7:#d3d7cf"
