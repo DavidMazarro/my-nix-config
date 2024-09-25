@@ -32,6 +32,15 @@
       hasklig
       iosevka-comfy.comfy-wide
     ];
+    nixPkgs = [       
+      comma
+      direnv
+      nix-index
+      # Nix LSP
+      nil
+      # Nix code formatter
+      alejandra
+    ];
     rustPkgs = [
       rustc
       cargo
@@ -52,19 +61,14 @@
       zellij
       fzf
       navi
-      # Nix code formatter
-      alejandra
-      # Nix LSP
-      nil
-      direnv
       lazygit
-      comma
       google-chrome
       obsidian
       discord
       vscode
     ]
     ++ fonts
+    ++ nixPkgs
     ++ rustPkgs
     ++ haskellPkgs;
 
