@@ -28,6 +28,10 @@ language-servers = [ "scls", "haskell-language-server" ]
 
 # roots = ["Setup.hs", "stack.yaml", "*.cabal"]
 
+[language-server.haskell-language-server]
+command = "haskell-language-server"
+args = [ "--lsp" ]
+
 # Snippets / SCLS
 
 # introduce new language server

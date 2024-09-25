@@ -34,7 +34,6 @@
     ];
     nixPkgs = [       
       comma
-      direnv
       nix-index
       # Nix LSP
       nil
@@ -100,6 +99,9 @@
   programs = {
     # Enable home-manager and let it manage itself.
     home-manager.enable = true;
+
+    # Enables nix-direnv.
+    direnv.enable = true;
 
     # Zsh config
     zsh = {
