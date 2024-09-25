@@ -27,8 +27,14 @@
       config.lib.file.mkOutOfStoreSymlink "${homeDir}/my-nix-config/dotfiles/iterm2";
   };
 
+  home.shellAliases = {
+    alloy = "alloy6";
+  };
+
   home.packages = with pkgs; [
-    hello
+    alloy6
+    agda
+    lean4
   ];
 
   # The state version is required and should stay at the version you
