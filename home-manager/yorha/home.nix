@@ -101,6 +101,19 @@
     };
   };
 
+  xdg = {
+    enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "image/jpg" = ["org.gnome.Loupe.desktop" "org.gnome.gThumb.desktop"];
+        "image/png" = ["org.gnome.Loupe.desktop" "org.gnome.gThumb.desktop"];
+        "video/mp4" = ["mpv.desktop" "org.gnome.Totem.desktop"];
+        "application/pdf" = ["org.gnome.Evince.desktop" "google-chrome.desktop"];
+      };
+    };
+  };
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; let
