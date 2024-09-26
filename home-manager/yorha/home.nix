@@ -84,6 +84,12 @@
       ];
     };
 
+    # Nautilus file browser settings.
+    "/org/gnome/nautilus/preferences" = {
+      # Show image thumbnails even in remote folders.
+      show-image-thumbnails = "always";
+    };
+
     # Extension-specific settings.
     # Since these come from dconf, to find out the name for
     # a specific option, run `dconf watch /` and change any option
