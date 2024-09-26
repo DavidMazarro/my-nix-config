@@ -86,6 +86,7 @@
 
     # Nautilus file browser settings.
     "/org/gnome/nautilus/preferences" = {
+    "org/gnome/nautilus/preferences" = {
       # Show image thumbnails even in remote folders.
       show-image-thumbnails = "always";
     };
