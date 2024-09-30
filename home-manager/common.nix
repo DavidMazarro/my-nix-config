@@ -101,6 +101,9 @@
     # Enable home-manager and let it manage itself.
     home-manager.enable = true;
 
+    # Enables GPG.
+    gpg.enable = true;
+
     # Enables nix-direnv.
     direnv.enable = true;
 
