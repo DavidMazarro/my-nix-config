@@ -15,7 +15,7 @@
 
   home = {
     username = "david";
-    homeDirectory = "/users/${config.home.username}";
+    homeDirectory = "/Users/${config.home.username}";
   };
 
   # Dotfiles setup
