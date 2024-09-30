@@ -34,7 +34,6 @@
   home.packages = with pkgs; [
     alloy6
     agda
-    lean4
   ];
 
   # The state version is required and should stay at the version you
