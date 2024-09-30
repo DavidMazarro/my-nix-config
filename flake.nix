@@ -82,6 +82,15 @@
           ./home-manager/sb/home.nix
         ];
       };
+
+      "dmunuera@ss" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Main home-manager configuration file <
+          ./home-manager/ss/home.nix
+        ];
+      };
     };
   };
 }
