@@ -54,6 +54,7 @@
     ];
   in
     [
+      unstable.helix
       nh
       lsd
       yazi
