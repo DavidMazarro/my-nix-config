@@ -32,13 +32,17 @@
       hasklig
       iosevka-comfy.comfy-wide
     ];
-    nixPkgs = [       
+    nixPkgs = [
       comma
       nix-index
       # Nix LSP
       nil
       # Nix code formatter
       alejandra
+      # Generate Nix fetcher calls from repository URLs
+      nurl
+      # Generate Nix packages from URLs
+      nix-init
     ];
     rustPkgs = [
       rustc
