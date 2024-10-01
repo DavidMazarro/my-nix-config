@@ -150,6 +150,9 @@
       '';
     };
 
+    # A cd command that learns - easily navigate directories from the command line.
+    autojump.enable = true;
+
     # Git config
     git = {
       enable = true;
