@@ -36,10 +36,6 @@
   };
 
   home.packages = with pkgs; [
-    kustomize-overlay.kustomize_4 # Version 4.5.7
-    minikube
-    tilt
-    sops
     k9s
   ];
 
