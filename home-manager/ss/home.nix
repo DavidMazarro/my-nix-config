@@ -13,6 +13,14 @@
     settings.experimental-features = ["nix-command" "flakes"];
   };
 
+  nixpkgs.overlays = [
+    # Add overlays your own flake exports (from overlays and pkgs dir):
+    outputs.overlays.additions
+    outputs.overlays.modifications
+    outputs.overlays.unstable-packages
+    outputs.overlays.ss-overlays
+  ];
+
   home = {
     username = "david.mazarro";
     homeDirectory = "/Users/${config.home.username}";
@@ -30,6 +38,7 @@
   home.packages = with pkgs; [
     iterm2
     slack
+    kustomize-overlay.kustomize_4 # Version 4.5.7
   ];
 
   programs = {
