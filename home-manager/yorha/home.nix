@@ -72,6 +72,7 @@
         "google-chrome.desktop"
         "discord.desktop"
         "org.telegram.desktop.desktop"
+        "slack.desktop"
         "code.desktop"
         "terminator.desktop"
         "org.gnome.Music.desktop"
@@ -145,6 +146,7 @@
       syncplay
       qdirstat
       testdisk
+      slack
     ]
     ++ helixLinuxDeps
     ++ gnomeExts;
