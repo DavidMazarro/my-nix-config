@@ -66,6 +66,7 @@
       obsidian
       discord
       vscode
+      unar
     ]
     ++ fonts
     ++ nixPkgs
