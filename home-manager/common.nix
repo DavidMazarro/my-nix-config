@@ -127,11 +127,21 @@
         # ];
       };
 
-      plugins = [
+      plugins = with pkgs; [
         {
           name = "powerlevel10k";
           src = pkgs.zsh-powerlevel10k;
           file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+        {
+          name = "zsh-autopair";
+          src = fetchFromGitHub {
+            owner = "hlissner";
+            repo = "zsh-autopair";
+            rev = "449a7c3d095bc8f3d78cf37b9549f8bb4c383f3d";
+            hash = "sha256-3zvOgIi+q7+sTXrT+r/4v98qjeiEL4Wh64rxBYnwJvQ=";
+          };
+          file = "autopair.zsh";
         }
       ];
 
