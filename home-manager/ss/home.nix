@@ -14,7 +14,7 @@
   };
 
   home = {
-    username = "david";
+    username = "david.mazarro";
     homeDirectory = "/Users/${config.home.username}";
   };
 
@@ -33,7 +33,12 @@
   ];
 
   programs = {
-    git.extraConfig.user.signingKey = "39ED198C4E2C9A5B";
+    git.extraConfig.user.signingKey = "392502F209776925";
+    zsh = {
+      initExtra = ''
+        HOMEBREW_NO_AUTO_UPDATE=1
+      '';
+    };
   };
 
   # The state version is required and should stay at the version you
