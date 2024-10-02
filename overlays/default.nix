@@ -12,7 +12,7 @@
     # });
   };
 
-  ss-overlays = final: prev: (import ./ss-overlays.nix final prev);
+  ss-overlays = import ./ss-overlays.nix;
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'
