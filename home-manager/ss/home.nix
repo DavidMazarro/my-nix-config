@@ -37,6 +37,12 @@
 
   home.packages = with pkgs; [
     k9s
+    minio
+    minio-client
+    cmake
+    fzf
+    pcre
+    gradle
   ];
 
   programs = {
