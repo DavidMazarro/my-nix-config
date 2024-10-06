@@ -49,7 +49,17 @@
     git.extraConfig.user.signingKey = "392502F209776925";
     zsh = {
       initExtra = ''
+        # Brew setup
         HOMEBREW_NO_AUTO_UPDATE=1
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+
+        # Postgres setup
+        PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+        LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
+        CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
+
+        # sdkman setup
+        source "$HOME/.sdkman/bin/sdkman-init.sh"
       '';
     };
   };
