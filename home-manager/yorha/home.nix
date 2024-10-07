@@ -85,6 +85,9 @@
       ];
     };
 
+    "org/gnome/shell/keybindings" = {
+      show-screenshot-ui = ["<Shift><Super>s"];
+    };
     # Nautilus file browser settings.
     "/org/gnome/nautilus/preferences" = {
     "org/gnome/nautilus/preferences" = {
