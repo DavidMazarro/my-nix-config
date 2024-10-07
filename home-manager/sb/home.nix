@@ -34,6 +34,7 @@
   home.packages = with pkgs; [
     alloy6
     agda
+    racket
   ];
 
   # The state version is required and should stay at the version you
