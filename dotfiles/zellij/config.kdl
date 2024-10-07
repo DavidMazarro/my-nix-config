@@ -1,8 +1,9 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-keybinds {
+keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
+        bind "Ctrl k" { SwitchToMode "Session"; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -110,7 +111,7 @@ keybinds {
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
     session {
-        bind "Ctrl o" { SwitchToMode "Normal"; }
+        bind "Ctrl k" { SwitchToMode "Normal"; }
         bind "Ctrl s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
@@ -172,7 +173,7 @@ keybinds {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
     }
     shared_except "session" "locked" {
-        bind "Ctrl o" { SwitchToMode "Session"; }
+        bind "Ctrl k" { SwitchToMode "Session"; }
     }
     shared_except "tab" "locked" {
         bind "Ctrl t" { SwitchToMode "Tab"; }
