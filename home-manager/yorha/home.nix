@@ -150,6 +150,7 @@
       qdirstat
       testdisk
       slack
+      racket
     ]
     ++ helixLinuxDeps
     ++ gnomeExts;
