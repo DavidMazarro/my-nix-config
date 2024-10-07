@@ -13,6 +13,9 @@
     # Helix dotfiles
     "${homeDir}/.config/helix".source =
       config.lib.file.mkOutOfStoreSymlink "${homeDir}/my-nix-config/dotfiles/helix";
+    # Zellij dotfiles
+    "${homeDir}/.config/zellij".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDir}/my-nix-config/dotfiles/zellij";
   };
 
   home.shellAliases = {
