@@ -256,6 +256,11 @@ plugins {
 //
 // scrollback_lines_to_serialize 10000
 
+// Choose the theme that is specified in the themes section.
+// Default: default
+//
+theme "rose-pine-moon"
+
 // Define color themes for Zellij
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
@@ -275,11 +280,6 @@ plugins {
 //         white 255 255 255
 //     }
 // }
-
-// Choose the theme that is specified in the themes section.
-// Default: default
-//
-// theme "default"
 
 // The name of the default layout to load on startup
 // Default: "default"
