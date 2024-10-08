@@ -61,6 +61,8 @@
     ];
   in
     [
+      curl
+      gnutar
       unstable.helix
       nh
       lsd
