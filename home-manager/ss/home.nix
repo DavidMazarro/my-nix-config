@@ -43,6 +43,9 @@
     fzf
     pcre
     gradle
+    sops
+    sqitchPg
+    sqlfluff
   ];
 
   programs = {
