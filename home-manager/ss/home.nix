@@ -63,6 +63,9 @@
 
         # sdkman setup
         source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+        # krew plugin setup for k8s cluster SSO login
+        PATH="''${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
       '';
     };
   };
