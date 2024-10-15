@@ -196,6 +196,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     gcc
+    openssl
     clang
     git
     unstable.helix
