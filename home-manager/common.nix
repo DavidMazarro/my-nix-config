@@ -27,6 +27,8 @@
     lg = "lazygit";
 
     yz = "yazi";
+
+    devflake = "nix flake init --template github:cachix/devenv";
   };
 
   home.packages = with pkgs; let
