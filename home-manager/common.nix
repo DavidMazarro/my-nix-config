@@ -47,7 +47,7 @@
       # Generate Nix packages from URLs
       nix-init
       # Create development environments easily
-      devenv
+      unstable.devenv
     ];
     rustPkgs = [
       rustc
