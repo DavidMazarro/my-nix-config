@@ -46,6 +46,8 @@
       nurl
       # Generate Nix packages from URLs
       nix-init
+      # Create development environments easily
+      devenv
     ];
     rustPkgs = [
       rustc
