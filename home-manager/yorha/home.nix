@@ -72,6 +72,7 @@
         "google-chrome.desktop"
         "discord.desktop"
         "org.telegram.desktop.desktop"
+        "steam.desktop"
         "obsidian.desktop"
         "slack.desktop"
         "code.desktop"

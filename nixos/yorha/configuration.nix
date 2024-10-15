@@ -47,6 +47,10 @@
       # Disable if you don't want unfree packages
       allowUnfree = true;
     };
+    flake = {
+      setFlakeRegistry = false;
+      setNixPath = false;
+    };
   };
 
   nix = let
@@ -100,8 +104,9 @@
   # };
 
   # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
+    enable32Bit = true;
   };
 
   # Enable the X11 windowing system and GNOME.
@@ -131,6 +136,8 @@
     # The actual drivers.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
+    # Enables open source drivers, recommended for RTX cards.
+    open = true;
     # Modesetting is REQUIRED (apparently).
     modesetting.enable = true;
 
@@ -161,8 +168,15 @@
 
   programs.zsh.enable = true;
 
-  # User and host settings
+  programs.steam = {
+    enable = true;
+    package = pkgs.unstable.steam;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
+  # User and host settings
   networking.hostName = "yorha";
 
   users = {

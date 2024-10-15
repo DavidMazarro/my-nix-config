@@ -17,6 +17,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     ...
   } @ inputs: let
@@ -44,7 +45,9 @@
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
-    nixosModules = import ./modules/nixos;
+    nixosModules = {
+      fhs-compatibility = import ./modules/fhs-compatibility.nix;
+    };
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
     homeManagerModules = import ./modules/home-manager;
@@ -52,7 +55,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild <command> --flake .#yorha
     nixosConfigurations = {
-      "yorha" = nixpkgs.lib.nixosSystem {
+      "yorha" = nixpkgs-unstable.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Main nixos configuration file <
