@@ -67,7 +67,6 @@
     [
       curl
       gnutar
-      unstable.helix
       nh
       lsd
       yazi
@@ -120,6 +119,13 @@
 
     # Enables nix-direnv.
     direnv.enable = true;
+
+    # Helix editor
+    helix = {
+      enable = true;
+      package = pkgs.unstable.helix;
+      defaultEditor = true;
+    };
 
     # Zsh config
     zsh = {
