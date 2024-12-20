@@ -35,6 +35,7 @@
     alloy6
     agda
     racket
+    poetry
   ];
 
   # The state version is required and should stay at the version you
