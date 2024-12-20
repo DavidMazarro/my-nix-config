@@ -74,6 +74,7 @@
       fzf
       navi
       lazygit
+      lazydocker
       google-chrome
       obsidian
       discord
