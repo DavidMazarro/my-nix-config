@@ -66,6 +66,7 @@
   in
     [
       curl
+      jq
       gnutar
       nh
       lsd
