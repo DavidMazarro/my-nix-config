@@ -66,6 +66,8 @@
 
         # krew plugin setup for k8s cluster SSO login
         PATH="''${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+        # GHCup
+        PATH="$HOME/.cabal/bin:$HOME/.local/bin:$HOME/.ghcup/bin:$PATH"
       '';
     };
   };
