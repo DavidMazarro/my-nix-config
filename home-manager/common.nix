@@ -56,13 +56,6 @@
       cargo
       rust-analyzer
     ];
-    haskellPkgs = [
-      cabal-install
-      stack
-      ghc
-      haskell-language-server
-      haskellPackages.implicit-hie
-    ];
   in
     [
       curl
@@ -84,8 +77,7 @@
     ]
     ++ fonts
     ++ nixPkgs
-    ++ rustPkgs
-    ++ haskellPkgs;
+    ++ rustPkgs;
 
   nixpkgs = {
     # You can add overlays here
