@@ -2,6 +2,7 @@ theme = "rose_pine_moon"
 
 [editor]
 popup-border = "all"
+cursorline = true
 
 [editor.lsp]
 display-messages = true
