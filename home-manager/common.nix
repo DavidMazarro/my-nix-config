@@ -71,7 +71,7 @@
       navi
       lazygit
       lazydocker
-      google-chrome
+      unstable.google-chrome
       obsidian
       discord
       vscode
