@@ -49,7 +49,7 @@
   ];
 
   programs = {
-    git.extraConfig.user.signingKey = "392502F209776925";
+    git.settings.user.signingKey = "392502F209776925";
     zsh = {
       initExtra = ''
         # Brew setup

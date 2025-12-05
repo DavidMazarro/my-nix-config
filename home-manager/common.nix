@@ -166,10 +166,9 @@
     git = {
       enable = true;
 
-      userName = "DavidMazarro";
-      userEmail = "davidmazarro98@gmail.com";
-
-      extraConfig = {
+      settings = {
+        user.name = "DavidMazarro";
+        user.email = "davidmazarro98@gmail.com";
         init.defaultBranch = "main";
         commit.gpgSign = true;
         core.editor = "hx";
