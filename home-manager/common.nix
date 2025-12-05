@@ -33,7 +33,9 @@
 
   home.packages = with pkgs; let
     fonts = [
-      nerdfonts
+      nerd-fonts.iosevka
+      nerd-fonts.iosevka-term
+      nerd-fonts.symbols-only
       hasklig
       iosevka-comfy.comfy-wide
     ];
