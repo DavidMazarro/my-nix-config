@@ -153,6 +153,8 @@
       testdisk
       slack
       racket
+      unstable.vcsi
+      smplayer
     ]
     ++ helixLinuxDeps
     ++ gnomeExts;
