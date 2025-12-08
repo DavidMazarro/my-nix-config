@@ -127,6 +127,7 @@
       dash-max-icon-size = 64;
       scroll-action = "cycle-windows";
       click-action = "minimize";
+      custom-theme-shrink = true;
     };
   };
 
