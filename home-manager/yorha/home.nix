@@ -15,6 +15,7 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
+    inputs.spicetify-nix.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -153,7 +154,6 @@
     [
       neofetch
       terminator
-      spotify
       firefox
       mpv
       veracrypt
@@ -173,6 +173,15 @@
     ]
     ++ helixLinuxDeps
     ++ gnomeExts;
+
+  # Spotify configuration (via Spicetify)
+  programs.spicetify = let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  in {
+    enable = true;
+    theme = spicePkgs.themes.ziro;
+    colorScheme = "rose-pine-moon";
+  };
 
   programs = {
     git.settings.user.signingKey = "AAA728A5C63AA61EC163D4458E06C34E2B1DD127";
