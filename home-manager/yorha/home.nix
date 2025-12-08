@@ -88,6 +88,7 @@
         "org.telegram.desktop.desktop"
         "steam.desktop"
         "obsidian.desktop"
+        "spotify.desktop"
         "slack.desktop"
         "code.desktop"
         "terminator.desktop"
@@ -104,6 +105,7 @@
     "org/gnome/shell/keybindings" = {
       show-screenshot-ui = ["<Shift><Super>s"];
     };
+
     # Nautilus file browser settings.
     "org/gnome/nautilus/preferences" = {
       # Show image thumbnails even in remote folders.
