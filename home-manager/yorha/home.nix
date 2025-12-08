@@ -67,8 +67,14 @@
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
+    
     "org/gnome/desktop/wm/preferences" = {
       button-layout = ":minimize,maximize,close";
+    };
+
+    "org/gnome/desktop/background" = {
+      color-shading-type = "solid";
+      picture-uri-dark = "file://${config.home.homeDirectory}/my-nix-config/images/Ange-Wallpaper-3440x1440.png";
     };
 
     # These two disable automatic turning off screen after period of inactivity.
