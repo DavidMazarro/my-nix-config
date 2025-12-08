@@ -2,19 +2,19 @@
 > [!NOTE]
 > The general structure of this configuration is based on [Misterio77/nix-starter-configs](https://github.com/Misterio77/nix-starter-configs).
 
-## Setup guide
+# Setup guide
 If you plan on setting this up on macOS or another non-NixOS Linux distribution, you can [skip ahead here](#if-you-want-to-build-the-home-with-home-manager). 
 
-### Installing NixOS (optional)
+## Installing NixOS (optional)
 Install NixOS on a new host by following the 
 [installation instructions in the NixOS manual](https://nixos.org/manual/nixos/stable/#sec-installation). 
 After successfully installing NixOS, proceed to the next section.
 
-### Setting up the system and home
+## Setting up the system and home
 Clone this repository (preferrably, under `$HOME/my-nix-config`).
 After that, from within the root folder of the repository, you can:
 
-#### If you are on NixOS and want to configure it:
+### If you are on NixOS and want to configure it:
 First, locate the `hardware-configuration.nix` that was generated 
 during the installation under `/etc/nixos/hardware-configuration.nix`,
 and copy it into the [nixos](./nixos/) folder of this repository.
@@ -31,15 +31,41 @@ the config specified for your host in [flake.nix](./flake.nix):
 sudo nixos-rebuild switch --flake ".#<host>"
 ```
 
-#### If you want to build the home with `home-manager`:
-First, create a new user@host in the `homeConfigurations` attribute
-in [flake.nix](./flake.nix). This user@host will be used from now on
+### If you want to build the home environment with `home-manager`:
+#### On a NixOS system
+
+Create a new `user@host` in the `homeConfigurations` attribute
+in [flake.nix](./flake.nix). This `user@host` will be used from now on
 as an entrypoint to rebuild your current home with the specified `home-manager` configuration files.
 
 After that, you can build the home configuration with the following command:
 ```
 home-manager switch --flake ".#<user>@<host>"
 ```
+
+#### On a non-NixOS system
+
+First, you must install the [Nix package manager](https://nixos.org/download/) (or [Determinate Nix](https://docs.determinate.systems/determinate-nix/)), and after that install [home-manager](https://nix-community.github.io/home-manager/index.xhtml#ch-installation).
+
+Then, create a new `user@host` in the `homeConfigurations` attribute
+in [flake.nix](./flake.nix). This `user@host` will be used from now on
+as an entrypoint to rebuild your current home with the specified `home-manager` configuration files.
+
+After that, you can build the home configuration with the following command:
+```
+home-manager switch --flake ".#<user>@<host>"
+```
+
+> [!WARNING] Installing home-manager in non-NixOS systems using Determinate Nix
+> Starting from May 2025, if you have installed [Determinate Nix](https://docs.determinate.systems/determinate-nix/) instead of regular Nix,
+> you will not be able to use the [official approach for installing `home-manager`](https://nix-community.github.io/home-manager/index.xhtml#ch-installation)
+> since it involves using the `nix-channel` command, which Determinate Nix no longer supports. 
+>
+> To build the home environment for the first time, run:
+> ```
+> nix run nixpkgs#home-manager -- switch --flake ".#<user>@<host>"
+> ```
+> and after that first activation succeeds, `home-manager` will be installed and you will be able to invoke it normally.
 
 <details>
   <summary>Enabling dotfiles for iTerm2 on macOS</summary>
