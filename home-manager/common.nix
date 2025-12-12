@@ -40,44 +40,47 @@
       iosevka-comfy.comfy-wide
     ];
     nixPkgs = [
-      comma
-      nix-index
-      # Nix LSP
-      nil
       # Nix code formatter
       alejandra
-      # Generate Nix fetcher calls from repository URLs
-      nurl
+      comma
+      # Nix LSP
+      nil
+      nix-index
       # Generate Nix packages from URLs
       nix-init
+      # Generate Nix fetcher calls from repository URLs
+      nurl
       # Create development environments easily
       unstable.devenv
     ];
     rustPkgs = [
-      rustc
       cargo
       rust-analyzer
+      rustc
+    ];
+    shellPkgs = [
+      curl
+      fzf
+      gnutar
+      jq
+      lazydocker
+      lazygit
+      lsd
+      navi
+      nh
+      unar
+      yazi
+      zellij
     ];
   in
     [
-      curl
-      jq
-      gnutar
-      nh
-      lsd
-      yazi
-      zellij
-      fzf
-      navi
-      lazygit
-      lazydocker
-      unstable.google-chrome
-      obsidian
       discord
+      obsidian
+      unstable.google-chrome
       vscode
-      unar
     ]
     ++ fonts
+    ++ shellPkgs
     ++ nixPkgs
     ++ rustPkgs;
 
