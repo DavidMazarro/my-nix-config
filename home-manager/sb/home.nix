@@ -29,6 +29,17 @@
 
   home.shellAliases = {
     alloy = "alloy6";
+    sortphotos = ''
+      mkdir -p RAW JPG \
+      && find . -maxdepth 1 -type f -iname "*.orf" -exec mv -n "{}" RAW/ \; \
+      && find . -maxdepth 1 -type f -iname "*.nef" -exec mv -n "{}" RAW/ \; \
+      && find . -maxdepth 1 -type f -iname "*.jpg" -exec mv -n "{}" JPG/ \; \
+      && for f in RAW/* JPG/*; do
+        [ -f "$f" ] || continue
+        created=$(GetFileInfo -d "$f")
+        SetFile -m "$created" "$f"
+      done
+    '';
   };
 
   home.packages = with pkgs; [
