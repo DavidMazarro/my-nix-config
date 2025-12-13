@@ -48,6 +48,14 @@
     uv
   ];
 
+  programs = {
+    zsh = {
+      initContent = ''
+        PATH="$HOME/.cabal/bin:$HOME/.local/bin:$HOME/.ghcup/bin:$PATH"
+      '';
+    };
+  };
+
   # The state version is required and should stay at the version you
   # originally installed.
   home.stateVersion = "24.05";

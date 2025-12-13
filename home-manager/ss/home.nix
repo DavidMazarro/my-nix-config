@@ -51,7 +51,7 @@
   programs = {
     git.settings.user.signingKey = "392502F209776925";
     zsh = {
-      initExtra = ''
+      initContent = ''
         # Brew setup
         HOMEBREW_NO_AUTO_UPDATE=1
         eval "$(/opt/homebrew/bin/brew shellenv)"
