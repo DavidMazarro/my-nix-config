@@ -167,6 +167,12 @@
     # A cd command that learns - easily navigate directories from the command line.
     autojump.enable = true;
 
+    # Upgraded ctrl-r shell history search.
+    mcfly = {
+      enable = true;
+      fzf.enable = true;
+    };
+
     # Git config
     git = {
       enable = true;
