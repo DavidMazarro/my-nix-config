@@ -80,6 +80,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # This prevents a buzzing sound when no audio is playing.
+  boot.kernelParams = ["snd_hda_intel.power_save=0"];
 
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
