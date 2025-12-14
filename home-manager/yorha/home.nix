@@ -160,24 +160,25 @@
     ];
   in
     [
-      neofetch
-      terminator
-      firefox
-      mpv
-      veracrypt
-      gthumb
-      telegram-desktop
       age
-      yt-dlp
-      unstable.gallery-dl
+      exiftool
+      firefox
+      gthumb
+      mpv
+      neofetch
       ntfs3g
-      syncplay
       qdirstat
-      testdisk
-      slack
       racket
-      unstable.vcsi
+      slack
       smplayer
+      syncplay
+      telegram-desktop
+      terminator
+      testdisk
+      unstable.gallery-dl
+      unstable.vcsi
+      veracrypt
+      yt-dlp
     ]
     ++ helixLinuxDeps
     ++ gnomeExts;
