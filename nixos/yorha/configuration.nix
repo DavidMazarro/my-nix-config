@@ -204,6 +204,17 @@
     vim
     home-manager
     wget
+    gdk-pixbuf
+    (writeTextFile {
+      name = "raw-embedded-jpeg-thumbnailer";
+      destination = "/share/thumbnailers/raw-embedded-jpeg.thumbnailer";
+      text = ''
+        [Thumbnailer Entry]
+        TryExec=gdk-pixbuf-thumbnailer
+        Exec=gdk-pixbuf-thumbnailer -s %s %u %o
+        MimeType=image/x-adobe-dng;image/x-dng;image/x-nikon-nef;image/x-olympus-orf;
+      '';
+    })
   ];
 
   fonts.packages = with pkgs; [
