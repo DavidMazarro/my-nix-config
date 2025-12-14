@@ -38,6 +38,15 @@
 
   home.shellAliases = let
     homeDir = config.home.homeDirectory;
+    sortphotos = ''
+      mkdir -p RAW JPG \
+      && find . -maxdepth 1 -type f \( -iname "*.orf" -o -iname "*.nef" \) -exec mv -n {} RAW/ \; \
+      && find . -maxdepth 1 -type f -iname "*.jpg" -exec mv -n {} JPG/ \; \
+      && for f in RAW/* JPG/*; do
+        [ -f "$f" ] || continue
+        exiftool -overwrite_original "-FileModifyDate<DateTimeOriginal" "$f"
+      done
+    '';
   in {
     nhos = "nh os switch ${homeDir}/my-nix-config";
     nhhome = "nh home switch ${homeDir}/my-nix-config";
@@ -68,7 +77,7 @@
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
     };
-    
+
     "org/gnome/desktop/wm/preferences" = {
       button-layout = ":minimize,maximize,close";
     };
