@@ -15,6 +15,9 @@
 
     # Spicetify (for Spotify config)
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    # Mac App Util (for macOS app integration)
+    mac-app-util.url = "github:hraban/mac-app-util";
   };
 
   outputs = {
@@ -22,6 +25,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    mac-app-util,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -95,6 +99,16 @@
         modules = [
           # > Main home-manager configuration file <
           ./home-manager/ss/home.nix
+        ];
+      };
+
+      "david@predictable" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Main home-manager configuration file <
+          ./home-manager/predictable/home.nix
+          mac-app-util.homeManagerModules.default
         ];
       };
     };
