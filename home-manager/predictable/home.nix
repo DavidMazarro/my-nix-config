@@ -45,6 +45,7 @@
     alloy6
     unstable.claude-code
     iterm2
+    nerd-fonts.meslo-lg
   ];
 
   programs = {
