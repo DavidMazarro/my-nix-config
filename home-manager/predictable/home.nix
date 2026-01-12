@@ -46,6 +46,7 @@
     unstable.claude-code
     iterm2
     nerd-fonts.meslo-lg
+    slack
   ];
 
   programs = {
