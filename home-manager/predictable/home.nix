@@ -48,6 +48,8 @@
   ];
 
   programs = {
+    git.settings.user.signingKey = "B7EB5E85D6C99135";
+
     zsh = {
       initContent = ''
         PATH="$HOME/.cabal/bin:$HOME/.local/bin:$HOME/.ghcup/bin:$PATH"
