@@ -39,6 +39,7 @@
         SetFile -m "$created" "$f"
       done
     '';
+    ytdl = "yt-dlp -f 'bv[ext=mp4]+ba[ext=m4a]/bv+ba/b' --merge-output-format mp4";
   };
 
   home.packages = with pkgs; [

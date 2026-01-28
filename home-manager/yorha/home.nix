@@ -44,7 +44,7 @@
     # Removes old generations and rebuilds NixOS (to remove them from the boot entries)
     gcold = "sudo nix-collect-garbage -d && nh os switch ${homeDir}/my-nix-config";
     nhclean = "nh clean all";
-    ytdl = "yt-dlp -f 'bv+ba/b' --merge-output-format mp4";
+    ytdl = "yt-dlp -f 'bv[ext=mp4]+ba[ext=m4a]/bv+ba/b' --merge-output-format mp4";
     gallery-dl-twitter = "gallery-dl --filename \"{date:%Y-%m-%d}__{user['name']}__{tweet_id}_{num}.{extension}\"";
     sortphotos = ''
       mkdir -p RAW JPG \
