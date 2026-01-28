@@ -44,10 +44,23 @@
 
   home.packages = with pkgs; [
     alloy6
+    elan
     unstable.claude-code
+    unstable.claude-code-acp
     iterm2
     nerd-fonts.meslo-lg
     slack
+    obsidian
+    spotify
+    pandoc
+    tailscale
+    texliveSmall
+    gh
+    ffmpeg
+    yt-dlp
+    uv
+    cvc5
+    nodejs_24
   ];
 
   programs = {
