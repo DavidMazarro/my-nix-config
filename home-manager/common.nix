@@ -54,9 +54,7 @@
       unstable.devenv
     ];
     rustPkgs = [
-      cargo
-      rust-analyzer
-      rustc
+      rustup
     ];
     shellPkgs = [
       curl
