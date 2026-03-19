@@ -61,14 +61,22 @@
     uv
     cvc5
     nodejs_24
+    typst
+    openssl
   ];
+
+  # Point Lake's C build at Nix-provided OpenSSL headers and libraries
+  home.sessionVariables = {
+    OPENSSL_INCLUDE_DIR = "${pkgs.openssl.dev}/include";
+    OPENSSL_LIB_DIR = "${pkgs.openssl.out}/lib";
+  };
 
   programs = {
     git.settings.user.signingKey = "B7EB5E85D6C99135";
 
     zsh = {
       initContent = ''
-        PATH="$HOME/.cabal/bin:$HOME/.local/bin:$HOME/.ghcup/bin:$PATH"
+        PATH="$HOME/Predictable/claude-container:$HOME/.cabal/bin:$HOME/.local/bin:$HOME/.ghcup/bin:$PATH"
       '';
     };
   };
