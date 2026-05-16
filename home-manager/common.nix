@@ -159,6 +159,16 @@
 
       initContent = ''
         source $HOME/.config/zsh/p10k.zsh
+
+        ffmpeg-compress() {
+          if [[ $# -lt 2 ]]; then
+            echo "Usage: ffmpeg-compress <input> <output>"
+            return 1
+          fi
+          local src="$1"
+          local dst="$2"
+          ffmpeg -i "$src" -c:v libx265 -crf 26 -tag:v hvc1 -map_metadata 0 -c:a copy "$dst" && touch -r "$src" "$dst"
+        }
       '';
     };
 
