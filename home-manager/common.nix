@@ -76,6 +76,7 @@
       obsidian
       unstable.google-chrome
       vscode
+      exiftool
     ]
     ++ fonts
     ++ shellPkgs
