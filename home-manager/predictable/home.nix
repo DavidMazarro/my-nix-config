@@ -69,6 +69,7 @@
     nodejs_24
     typst
     openssl
+    mpv
   ];
 
   # Point Lake's C build at Nix-provided OpenSSL headers and libraries
