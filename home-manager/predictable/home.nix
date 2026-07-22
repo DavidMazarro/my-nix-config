@@ -25,6 +25,12 @@
     # iTerm2 dotfiles
     "${homeDir}/.config/iterm2".source =
       config.lib.file.mkOutOfStoreSymlink "${homeDir}/my-nix-config/dotfiles/iterm2";
+
+    # Ghostty config (terminal colors + font read by cmux; mirrors iTerm2 theme).
+    # Single file rather than the whole dir so cmux's own config.ghostty artifact
+    # is not pulled into the repo.
+    "${homeDir}/.config/ghostty/config".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDir}/my-nix-config/dotfiles/ghostty/config";
   };
 
   home.shellAliases = {

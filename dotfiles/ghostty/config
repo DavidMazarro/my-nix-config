@@ -1,0 +1,38 @@
+# Rosé Pine, copied from my iTerm2 default profile
+
+# ANSI palette (0-15)
+palette = 0=#26233a
+palette = 1=#eb6f92
+palette = 2=#9ccfd8
+palette = 3=#f6c177
+palette = 4=#31748f
+palette = 5=#c4a7e7
+palette = 6=#ebbcba
+palette = 7=#e0def4
+palette = 8=#6e6a86
+palette = 9=#eb6f92
+palette = 10=#9ccfd8
+palette = 11=#f6c177
+palette = 12=#31748f
+palette = 13=#c4a7e7
+palette = 14=#ebbcba
+palette = 15=#e0def4
+
+# Base colors
+background = #191724
+foreground = #e0def4
+
+# Cursor
+cursor-color = #555169
+cursor-text = #e0def4
+
+# Selection
+selection-background = #2a2837
+selection-foreground = #e0def4
+
+# Font
+font-family = IosevkaTerm NFM
+font-family = MesloLGL Nerd Font Mono
+font-size = 17
+
+bold-is-bright = true
