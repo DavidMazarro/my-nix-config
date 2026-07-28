@@ -48,7 +48,13 @@
     ytdl = "yt-dlp -f 'bv[ext=mp4]+ba[ext=m4a]/bv+ba/b' --merge-output-format mp4";
   };
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs; let
+    # Only installs timeout from toybox to avoid collision with macOS native commands
+    toybox-timeout = runCommand "toybox-timeout" {} ''
+      mkdir -p "$out/bin"
+      ln -s ${toybox}/bin/toybox "$out/bin/timeout"
+    '';
+  in [
     alloy6
     elan
     unstable.claude-code
@@ -70,6 +76,7 @@
     typst
     openssl
     mpv
+    toybox-timeout
   ];
 
   # Point Lake's C build at Nix-provided OpenSSL headers and libraries
