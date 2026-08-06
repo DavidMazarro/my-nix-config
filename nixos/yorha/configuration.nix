@@ -163,6 +163,9 @@
   };
   hardware.pulseaudio.enable = false;
 
+  # Tailscale
+  services.tailscale.enable = true;
+
   # GPG settings
   programs.gnupg.agent = {
     enable = true;
