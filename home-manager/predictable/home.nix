@@ -91,6 +91,15 @@
     zsh = {
       initContent = ''
         PATH="$HOME/Predictable/claude-container:$HOME/.cabal/bin:$HOME/.local/bin:$HOME/.ghcup/bin:$PATH"
+
+        # Terminals inherit launchd's open-file soft limit of 256, which Nix flake
+        # evaluation exceeds ("Too many open files"), so raise it per shell.
+        () {
+          local soft=$(ulimit -Sn)
+          if [[ $soft != unlimited ]] && (( soft < 65536 )); then
+            ulimit -Sn 65536
+          fi
+        }
       '';
     };
   };
