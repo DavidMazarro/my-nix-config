@@ -63,7 +63,7 @@
     nerd-fonts.meslo-lg
     slack
     obsidian
-    spotify
+    unstable.spotify
     pandoc
     tailscale
     texliveSmall
