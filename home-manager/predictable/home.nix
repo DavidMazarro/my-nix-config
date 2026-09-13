@@ -77,6 +77,7 @@
     openssl
     mpv
     toybox-timeout
+    unstable.mise
   ];
 
   # Point Lake's C build at Nix-provided OpenSSL headers and libraries
@@ -100,6 +101,10 @@
             ulimit -Sn 65536
           fi
         }
+
+        # In a directory with a mise.toml, its pinned tools come before the nix ones.
+        # Last in the block: it must run after the PATH line above.
+        eval "$(mise activate zsh)"
       '';
     };
   };
