@@ -37,6 +37,7 @@
     alloy = "alloy6";
     sortphotos = ''
       mkdir -p RAW JPG \
+      && find . -maxdepth 1 -type f \( -iname "*.orf" -o -iname "*.nef" -o -iname "*.jpg" \) -exec chflags nouchg {} + \
       && find . -maxdepth 1 -type f \( -iname "*.orf" -o -iname "*.nef" \) -exec mv -n {} RAW/ \; \
       && find . -maxdepth 1 -type f -iname "*.jpg" -exec mv -n "{}" JPG/ \; \
       && for f in RAW/* JPG/*; do
